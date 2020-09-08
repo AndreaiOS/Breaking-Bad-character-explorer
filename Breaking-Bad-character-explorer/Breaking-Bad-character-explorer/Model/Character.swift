@@ -18,5 +18,5 @@ struct Character: Decodable {
 	let appearance: [Int]
 	let portrayed: String
 	let category: String
-	let betterCallSaulAppearance: [Int]
+	let betterCallSaulAppearance: [Int]?
 }

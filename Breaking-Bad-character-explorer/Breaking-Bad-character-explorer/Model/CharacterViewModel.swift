@@ -14,6 +14,10 @@ struct CharacterViewModel {
 	// We define our character as private
 	private let character: Character
 	
+	init(_ character: Character) {
+		self.character = character
+	}
+	
 	// We can have computed properties
 	var name: String {
 		return character.name
@@ -58,7 +62,7 @@ struct CharacterViewModel {
 		return character.category
 	}
 	
-	var betterCallSaulAppearance: [Int] {
+	var betterCallSaulAppearance: [Int]? {
 		return character.betterCallSaulAppearance
 	}
 }

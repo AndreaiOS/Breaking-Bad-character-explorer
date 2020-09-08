@@ -7,9 +7,26 @@
 //
 
 import Foundation
+import Combine
 
 class CharacterListViewModel: ObservableObject {
 	private let characterService = CharacterService()
-	@Published var characterViewModels = [Character]()
+	@Published var characterViewModels = [CharacterViewModel]()
+	
+	var cancellable: AnyCancellable?
+	
+	// This is going to be called when our view appears
+	func fetchCharacters() {
+		// This is going to store subscriptions
+		// If we don't store it Combine will deallocate subscriptions
+		// and the network request will not complete properly
+		cancellable = characterService
+			.fetchCharacters().sink(receiveCompletion: { _ in
+
+			}, receiveValue: { characterContainer in
+				self.characterViewModels = characterContainer.map { CharacterViewModel($0) } 
+				print(self.characterViewModels)
+			})
+	}
 	
 }

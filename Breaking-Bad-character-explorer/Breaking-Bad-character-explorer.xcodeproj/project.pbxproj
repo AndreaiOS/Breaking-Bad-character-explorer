@@ -17,7 +17,6 @@
 		A5D40C46250788A7009B728E /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D40C45250788A7009B728E /* CharacterViewModel.swift */; };
 		A5D40C48250788CD009B728E /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D40C47250788CD009B728E /* Character.swift */; };
 		A5D40C4A25078C22009B728E /* CharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D40C4925078C22009B728E /* CharacterService.swift */; };
-		A5D40C4D25078C79009B728E /* CharacterDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D40C4C25078C79009B728E /* CharacterDataContainer.swift */; };
 		A5D40C4F25079567009B728E /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D40C4E25079567009B728E /* ImageService.swift */; };
 		A5D40C52250795CC009B728E /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D40C51250795CC009B728E /* ImageView.swift */; };
 /* End PBXBuildFile section */
@@ -35,7 +34,6 @@
 		A5D40C45250788A7009B728E /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
 		A5D40C47250788CD009B728E /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		A5D40C4925078C22009B728E /* CharacterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterService.swift; sourceTree = "<group>"; };
-		A5D40C4C25078C79009B728E /* CharacterDataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDataContainer.swift; sourceTree = "<group>"; };
 		A5D40C4E25079567009B728E /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		A5D40C51250795CC009B728E /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,7 +105,6 @@
 			children = (
 				A5D40C4925078C22009B728E /* CharacterService.swift */,
 				A5D40C4E25079567009B728E /* ImageService.swift */,
-				A5D40C4C25078C79009B728E /* CharacterDataContainer.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -193,7 +190,6 @@
 			files = (
 				A5D40C52250795CC009B728E /* ImageView.swift in Sources */,
 				A5D40C4425078873009B728E /* CharacterListViewModel.swift in Sources */,
-				A5D40C4D25078C79009B728E /* CharacterDataContainer.swift in Sources */,
 				A5D40C4F25079567009B728E /* ImageService.swift in Sources */,
 				A5D40C46250788A7009B728E /* CharacterViewModel.swift in Sources */,
 				A5D40C4A25078C22009B728E /* CharacterService.swift in Sources */,

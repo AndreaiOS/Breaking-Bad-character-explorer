@@ -9,8 +9,12 @@
 import SwiftUI
 
 struct CharacterList: View {
+	private let viewModel = CharacterListViewModel()
     var body: some View {
-        Text("Hello, World!")
+        Text("Hello, WorldZ!")
+			.onAppear { 
+				self.viewModel.fetchCharacters()
+		}
     }
 }
 
