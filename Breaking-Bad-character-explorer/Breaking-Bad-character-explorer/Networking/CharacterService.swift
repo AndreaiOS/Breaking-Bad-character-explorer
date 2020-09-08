@@ -17,7 +17,6 @@ final class CharacterService {
 		components.host = "breakingbadapi.com"
 		components.path = "/api/characters"
 		
-		
 		return components
 	}
 	

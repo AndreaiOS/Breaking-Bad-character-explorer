@@ -13,14 +13,12 @@ struct CharacterList: View {
 	@ObservedObject private var viewModel = CharacterListViewModel()
     var body: some View {
 		NavigationView {
-			
 			List(viewModel.characterViewModels, id: \.self) { characterViewModel in 
 				CharacterCell(characterViewModel: characterViewModel)				
 			}.onAppear {
 				self.viewModel.fetchCharacters()
 			}.navigationBarTitle("Characters")
 		}
-		
     }
 }
 
@@ -29,7 +27,3 @@ struct CharacterList_Previews: PreviewProvider {
         CharacterList()
     }
 }
-
-
-
-

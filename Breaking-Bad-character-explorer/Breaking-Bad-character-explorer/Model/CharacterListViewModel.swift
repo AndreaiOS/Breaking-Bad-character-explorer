@@ -18,7 +18,7 @@ class CharacterListViewModel: ObservableObject {
 	// This is going to be called when our view appears
 	func fetchCharacters() {
 		// This is going to store subscriptions
-		// If we don't store it Combine will deallocate subscriptions
+		// If we don't store it, Combine will deallocate subscriptions
 		// and the network request will not complete properly
 		cancellable = characterService
 			.fetchCharacters().sink(receiveCompletion: { _ in
