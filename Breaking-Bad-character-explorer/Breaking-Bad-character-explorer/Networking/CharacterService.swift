@@ -22,15 +22,12 @@ final class CharacterService {
 	}
 	
 	func fetchCharacters() -> AnyPublisher<Array<Character>, Error> {
-		print("Components.url \(components.url?.absoluteString ?? "")")
 		return URLSession.shared.dataTaskPublisher(for: components.url!)
 			.map { $0.data }
 			.decode(type: Array<Character>.self, decoder: JSONDecoder())
 			.receive(on: DispatchQueue.main)
 			.eraseToAnyPublisher()
 	} 
-	
-	
 }
 
 

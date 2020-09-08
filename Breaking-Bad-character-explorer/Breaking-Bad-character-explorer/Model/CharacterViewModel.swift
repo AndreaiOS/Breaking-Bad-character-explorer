@@ -10,7 +10,7 @@ import Foundation
 
 // This is responsable for converting the Character object into something we can display
 
-struct CharacterViewModel {
+struct CharacterViewModel: Hashable {
 	// We define our character as private
 	private let character: Character
 	
