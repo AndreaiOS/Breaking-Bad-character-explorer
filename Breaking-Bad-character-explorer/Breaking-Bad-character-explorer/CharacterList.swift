@@ -11,29 +11,27 @@ import SDWebImageSwiftUI
 
 struct CharacterList: View {
 	@ObservedObject private var viewModel = CharacterListViewModel()
-    @State private var searchText : String = ""
-
-    var body: some View {
+	@State private var searchText : String = ""
+	
+	var body: some View {
 		NavigationView {
-            VStack {
-
-			SearchBar(text: $searchText, placeholder: "Search character")
-//			List(viewModel.characterViewModels, id: \.self) { characterViewModel in
+			VStack {				
+				SearchBar(text: $searchText, placeholder: "Search character")
 				List {  
-
-				ForEach(self.viewModel.characterViewModels.filter {
-					self.searchText.isEmpty ? true : $0.name.lowercased().contains(self.searchText.lowercased())
-				}, id: \.self) { characterViewModel in
-					CharacterCell(characterViewModel: characterViewModel)				
-				}
-			
-		}
+					ForEach(self.viewModel.characterViewModels.filter {
+						self.searchText.isEmpty ? true : $0.name.lowercased().contains(self.searchText.lowercased())
+					}, id: \.self) { characterViewModel in
+						CharacterCell(characterViewModel: characterViewModel)				
+					}
+					}
 				.onAppear {
 					self.viewModel.fetchCharacters()
-				}.navigationBarTitle("Characters")
+				}
+				.navigationBarTitle("Characters")
+				.resignKeyboardOnDragGesture()
 			}
 		}
-    }
+	}
 }
 
 
@@ -53,6 +51,10 @@ struct SearchBar: UIViewRepresentable {
         func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
             text = searchText
         }
+		
+		func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+			UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
+		}
     }
 
     func makeCoordinator() -> SearchBar.Coordinator {
