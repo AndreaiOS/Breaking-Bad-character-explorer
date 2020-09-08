@@ -36,8 +36,8 @@ struct CharacterDetail: View {
                 .font(.title)
 			Text(character.occupation.description)
                 .font(.subheadline)
-            //1
-            Divider()
+
+			Divider()
 
 			Text(character.status)
                 .font(.headline)
