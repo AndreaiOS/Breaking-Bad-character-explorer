@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6F40F2197B9E4BDE2411A46F /* Pods_Breaking_Bad_character_explorer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633ACA53D5FE321407F353B0 /* Pods_Breaking_Bad_character_explorer.framework */; };
+		A55A72AC2507CC570043F9DD /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55A72AB2507CC570043F9DD /* CharacterCell.swift */; };
 		A5D40C2F25078712009B728E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D40C2E25078712009B728E /* AppDelegate.swift */; };
 		A5D40C3125078712009B728E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D40C3025078712009B728E /* SceneDelegate.swift */; };
 		A5D40C3325078712009B728E /* CharacterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D40C3225078712009B728E /* CharacterList.swift */; };
@@ -24,6 +25,7 @@
 		3A093A288818DFEA0C90FD23 /* Pods-Breaking-Bad-character-explorer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breaking-Bad-character-explorer.release.xcconfig"; path = "Target Support Files/Pods-Breaking-Bad-character-explorer/Pods-Breaking-Bad-character-explorer.release.xcconfig"; sourceTree = "<group>"; };
 		40B0BA0A8437CBEE374A7084 /* Pods-Breaking-Bad-character-explorer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breaking-Bad-character-explorer.debug.xcconfig"; path = "Target Support Files/Pods-Breaking-Bad-character-explorer/Pods-Breaking-Bad-character-explorer.debug.xcconfig"; sourceTree = "<group>"; };
 		633ACA53D5FE321407F353B0 /* Pods_Breaking_Bad_character_explorer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Breaking_Bad_character_explorer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A55A72AB2507CC570043F9DD /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		A5D40C2B25078712009B728E /* Breaking-Bad-character-explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Breaking-Bad-character-explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D40C2E25078712009B728E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5D40C3025078712009B728E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		A5D40C502507959F009B728E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A55A72AB2507CC570043F9DD /* CharacterCell.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				A5D40C4425078873009B728E /* CharacterListViewModel.swift in Sources */,
 				A5D40C46250788A7009B728E /* CharacterViewModel.swift in Sources */,
 				A5D40C4A25078C22009B728E /* CharacterService.swift in Sources */,
+				A55A72AC2507CC570043F9DD /* CharacterCell.swift in Sources */,
 				A5D40C2F25078712009B728E /* AppDelegate.swift in Sources */,
 				A5D40C48250788CD009B728E /* Character.swift in Sources */,
 				A5D40C3125078712009B728E /* SceneDelegate.swift in Sources */,

@@ -15,23 +15,7 @@ struct CharacterList: View {
 		NavigationView {
 			
 			List(viewModel.characterViewModels, id: \.self) { characterViewModel in 
-				NavigationLink(destination: Text(characterViewModel.name)) {
-					WebImage(url: URL(string: characterViewModel.img))
-						.onSuccess { image, data, cacheType in
-					}
-					.resizable()
-					.placeholder(Image("BreakingBadPlaceholder"))
-						.indicator(.activity) // Activity Indicator
-						.transition(.fade(duration: 0.1)) // Fade Transition with duration
-						.scaledToFit()
-						.frame(width: 80, height: 80, alignment: .center)	
-					VStack(alignment: .leading) {
-						Text(characterViewModel.name)
-						Text(characterViewModel.nickname)
-							.font(.subheadline)
-							.foregroundColor(.gray)
-					}
-				}				
+				CharacterCell(characterViewModel: characterViewModel)				
 			}.onAppear {
 				self.viewModel.fetchCharacters()
 			}.navigationBarTitle("Characters")
@@ -45,5 +29,7 @@ struct CharacterList_Previews: PreviewProvider {
         CharacterList()
     }
 }
+
+
 
 
