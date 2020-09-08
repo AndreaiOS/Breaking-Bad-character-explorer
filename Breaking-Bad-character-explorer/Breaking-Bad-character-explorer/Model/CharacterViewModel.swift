@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 // This is responsable for converting the Character object into something we can display
 
@@ -35,5 +34,31 @@ struct CharacterViewModel {
 		return character.occupation
 	}
 	
+	var image: ImageView {
+		return ImageView(withURL: character.img)
+	}
 	
+	var status: String {
+		return character.status
+	}
+	
+	var nickname: String {
+		return character.nickname
+	}
+	
+	var appearance: [Int] {
+		return character.appearance
+	}
+	
+	var portrayed: String {
+		return character.portrayed
+	}
+	
+	var category: String {
+		return character.category
+	}
+	
+	var betterCallSaulAppearance: [Int] {
+		return character.betterCallSaulAppearance
+	}
 }

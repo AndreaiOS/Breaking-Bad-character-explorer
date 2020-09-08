@@ -8,13 +8,26 @@
 
 import Foundation
 import Combine
-import SwiftUI
 
 final class CharacterService {
-//	func fetchCharacters() -> AnyPublisher<CharacterDataContainer, Error> {
-//		
-//	} 
+	
+	var components: URLComponents {
+		var components = URLComponents()
+		components.scheme = "https"
+		components.host = "breakingbadapi.com"
+		components.path = "/api/characters"
+		
+		return components
+	}
+	
+	func fetchCharacters() -> AnyPublisher<CharacterDataContainer, Error> {
+		return URLSession.shared.dataTaskPublisher(for: components.url!)
+			.map { $0.data }
+			.decode(type: CharacterDataContainer.self, decoder: JSONDecoder())
+			.eraseToAnyPublisher()
+	} 
 	
 	
 }
+
 
