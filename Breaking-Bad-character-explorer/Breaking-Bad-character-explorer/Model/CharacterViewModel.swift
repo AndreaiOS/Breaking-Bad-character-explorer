@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 // This is responsable for converting the Character object into something we can display
 
@@ -37,9 +38,10 @@ struct CharacterViewModel: Hashable {
 	var occupation: [String] {
 		return character.occupation
 	}
+
 	
-	var image: ImageView {
-		return ImageView(withURL: character.img)
+	var img: String {
+		return character.img
 	}
 	
 	var status: String {

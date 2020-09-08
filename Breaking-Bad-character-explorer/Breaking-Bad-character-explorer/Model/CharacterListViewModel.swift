@@ -25,7 +25,6 @@ class CharacterListViewModel: ObservableObject {
 
 			}, receiveValue: { characterContainer in
 				self.characterViewModels = characterContainer.map { CharacterViewModel($0) } 
-				print(self.characterViewModels)
 			})
 	}
 	

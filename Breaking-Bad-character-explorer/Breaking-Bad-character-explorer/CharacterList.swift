@@ -11,12 +11,24 @@ import SwiftUI
 struct CharacterList: View {
 	@ObservedObject private var viewModel = CharacterListViewModel()
     var body: some View {
-		List(viewModel.characterViewModels, id: \.self) { characterViewModel in 
-			Text(characterViewModel.name)
-		}.onAppear {
-			self.viewModel.fetchCharacters()
+		NavigationView {
+			List(viewModel.characterViewModels, id: \.self) { characterViewModel in 
+				HStack(alignment: .center, spacing: 0.0) {
+					ImageView(withURL: characterViewModel.img) 
+					Text(characterViewModel.name)
+				}.alignmentGuide(.leading) { (dimesions) -> CGFloat in
+					return 8.0
+				}
+				
+			}.onAppear {
+				self.viewModel.fetchCharacters()
+			}.navigationBarTitle("Characters")
 		}
+		
     }
+
+	static var defaultImage = UIImage(named: "NewsIcon")
+
 }
 
 struct CharacterList_Previews: PreviewProvider {
