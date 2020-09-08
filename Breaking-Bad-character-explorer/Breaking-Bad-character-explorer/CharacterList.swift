@@ -12,12 +12,14 @@ import SDWebImageSwiftUI
 struct CharacterList: View {
 	@ObservedObject private var viewModel = CharacterListViewModel()
 	@State private var searchText : String = ""
+	@State private var selectedSeasons: [Int] = [Int]()
 	
 	var body: some View {
 		NavigationView {
 			VStack {				
-				SearchBar(text: $searchText, placeholder: "Search character")
 				List {  
+					SearchBar(text: $searchText, placeholder: "Search character")
+
 					ForEach(self.viewModel.characterViewModels.filter {
 						self.searchText.isEmpty ? true : $0.name.lowercased().contains(self.searchText.lowercased())
 					}, id: \.self) { characterViewModel in
@@ -25,9 +27,21 @@ struct CharacterList: View {
 					}
 					}
 				.onAppear {
+					print("Selected season: \(self.selectedSeasons.description)")
 					self.viewModel.fetchCharacters()
 				}
 				.navigationBarTitle("Characters")
+				.navigationBarItems(trailing:
+					
+					// Devo creare una view dei filtri 
+					// devo passare tutte le stagioni possibili filtrabili
+					// devo riportare indietro il valore selezionato e aggiornare la tabella
+					
+					
+					NavigationLink(destination: FiltersView(selectedSeasons: $selectedSeasons)) {
+						Text("Filters")
+					}
+				)
 				.resignKeyboardOnDragGesture()
 			}
 		}
