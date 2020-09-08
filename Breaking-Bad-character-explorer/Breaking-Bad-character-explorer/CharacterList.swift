@@ -21,21 +21,35 @@ struct CharacterList: View {
 					SearchBar(text: $searchText, placeholder: "Search character")
 
 					ForEach(self.viewModel.characterViewModels.filter {
-						self.searchText.isEmpty ? true : $0.name.lowercased().contains(self.searchText.lowercased())
+						if (self.searchText.isEmpty && self.selectedSeasons.isEmpty) {
+							return true
+						} else {
+							if (self.searchText.isEmpty && !self.selectedSeasons.isEmpty) {
+								let ts = $0.appearance.filter{ self.selectedSeasons.contains($0) }
+								let contained = ts.count > 0
+						
+								return contained
+							} else if (!self.searchText.isEmpty && self.selectedSeasons.isEmpty) {
+								return $0.name.lowercased().contains(self.searchText.lowercased())
+							} else {
+								let ts = $0.appearance.filter{ self.selectedSeasons.contains($0) }
+								let contained = ts.count > 0
+								return contained && $0.name.lowercased().contains(self.searchText.lowercased()) 
+							}
+						}
 					}, id: \.self) { characterViewModel in
 						CharacterCell(characterViewModel: characterViewModel)				
 					}
 					}
 				.onAppear {
-					print("Selected season: \(self.selectedSeasons.description)")
 					self.viewModel.fetchCharacters()
 				}
 				.navigationBarTitle("Characters")
 				.navigationBarItems(trailing:
 					
-					// Devo creare una view dei filtri 
-					// devo passare tutte le stagioni possibili filtrabili
-					// devo riportare indietro il valore selezionato e aggiornare la tabella
+					// devo aggiornare la tabella quando rientro
+					// le stagioni sono 4, easy
+					
 					
 					
 					NavigationLink(destination: FiltersView(selectedSeasons: $selectedSeasons)) {

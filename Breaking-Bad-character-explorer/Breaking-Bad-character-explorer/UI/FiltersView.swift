@@ -12,28 +12,38 @@ import SwiftUI
 struct FiltersView: View {
 	
 	@Binding var selectedSeasons: [Int]
-
+	let items = [1, 2, 3, 4, 5]
 	
     var body: some View {
-        VStack {
-			Text("character.name")
-                .font(.title)
-			Text("character.occupation.description")
-                .font(.subheadline)
+        List {
+            ForEach(self.items, id: \.self) { item in
+                MultipleSelectionRow(title: "Season \(item)", isSelected: self.selectedSeasons.contains(item)) {
+                    if self.selectedSeasons.contains(item) {
+                        self.selectedSeasons.removeAll(where: { $0 == item })
+                    }
+                    else {
+                        self.selectedSeasons.append(item)
+                    }
+                }
+            }
+        }
+    }
+}
 
-			Divider()
+struct MultipleSelectionRow: View {
+    var title: String
+    var isSelected: Bool
+    var action: () -> Void
 
-			Text("character.status")
-                .font(.headline)
-			Text("character.nickname")
-			.font(.headline)
-			Button("Help") {
-				print("Selected s \(self.selectedSeasons.description)")
-				self.selectedSeasons.append(69)
-			}
-
-        //2
-        }.padding()
-			
+    var body: some View {
+        Button(action: self.action) {
+            HStack {
+                Text(self.title)
+                if self.isSelected {
+                    Spacer()
+                    Image(systemName: "checkmark")
+                }
+            }
+        }
     }
 }
