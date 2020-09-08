@@ -7,14 +7,27 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct CharacterList: View {
 	@ObservedObject private var viewModel = CharacterListViewModel()
     var body: some View {
 		NavigationView {
+			
 			List(viewModel.characterViewModels, id: \.self) { characterViewModel in 
 				HStack(alignment: .center, spacing: 0.0) {
-					ImageView(withURL: characterViewModel.img) 
+					
+					WebImage(url: URL(string: characterViewModel.img))
+					.onSuccess { image, data, cacheType in
+					}
+					.resizable()
+					.placeholder(Image("BreakingBadPlaceholder"))
+					.indicator(.activity) // Activity Indicator
+					.transition(.fade(duration: 0.1)) // Fade Transition with duration
+					.scaledToFit()
+					.frame(width: 80, height: 80, alignment: .center)
+					
+					
 					Text(characterViewModel.name)
 				}.alignmentGuide(.leading) { (dimesions) -> CGFloat in
 					return 8.0
@@ -26,9 +39,6 @@ struct CharacterList: View {
 		}
 		
     }
-
-	static var defaultImage = UIImage(named: "NewsIcon")
-
 }
 
 struct CharacterList_Previews: PreviewProvider {

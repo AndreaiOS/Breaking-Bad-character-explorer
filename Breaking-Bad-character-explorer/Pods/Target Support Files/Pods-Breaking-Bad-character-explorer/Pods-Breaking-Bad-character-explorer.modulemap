@@ -1,0 +1,6 @@
+framework module Pods_Breaking_Bad_character_explorer {
+  umbrella header "Pods-Breaking-Bad-character-explorer-umbrella.h"
+
+  export *
+  module * { export * }
+}
