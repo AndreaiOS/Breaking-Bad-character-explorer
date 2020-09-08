@@ -19,44 +19,41 @@ struct CharacterList: View {
 			VStack {				
 				List {  
 					SearchBar(text: $searchText, placeholder: "Search character")
-
+					
 					ForEach(self.viewModel.characterViewModels.filter {
-						if (self.searchText.isEmpty && self.selectedSeasons.isEmpty) {
-							return true
-						} else {
-							if (self.searchText.isEmpty && !self.selectedSeasons.isEmpty) {
-								let ts = $0.appearance.filter{ self.selectedSeasons.contains($0) }
-								let contained = ts.count > 0
-						
-								return contained
-							} else if (!self.searchText.isEmpty && self.selectedSeasons.isEmpty) {
-								return $0.name.lowercased().contains(self.searchText.lowercased())
-							} else {
-								let ts = $0.appearance.filter{ self.selectedSeasons.contains($0) }
-								let contained = ts.count > 0
-								return contained && $0.name.lowercased().contains(self.searchText.lowercased()) 
-							}
-						}
+						return filter(characterViewModel: $0)						
 					}, id: \.self) { characterViewModel in
 						CharacterCell(characterViewModel: characterViewModel)				
 					}
-					}
+				}
 				.onAppear {
 					self.viewModel.fetchCharacters()
 				}
 				.navigationBarTitle("Characters")
 				.navigationBarItems(trailing:
-					
-					// devo aggiornare la tabella quando rientro
-					// le stagioni sono 4, easy
-					
-					
-					
 					NavigationLink(destination: FiltersView(selectedSeasons: $selectedSeasons)) {
 						Text("Filters")
 					}
 				)
 				.resignKeyboardOnDragGesture()
+			}
+		}
+	}
+	
+	func filter(characterViewModel: CharacterViewModel) -> Bool {
+		if (self.searchText.isEmpty && self.selectedSeasons.isEmpty) {
+			return true
+		} else {
+			if (self.searchText.isEmpty && !self.selectedSeasons.isEmpty) {
+				let ts = characterViewModel.appearance.filter{ self.selectedSeasons.contains($0) }
+				let contained = ts.count > 0
+				return contained
+			} else if (!self.searchText.isEmpty && self.selectedSeasons.isEmpty) {
+				return characterViewModel.name.lowercased().contains(self.searchText.lowercased())
+			} else {
+				let ts = characterViewModel.appearance.filter{ self.selectedSeasons.contains($0) }
+				let contained = ts.count > 0
+				return contained && characterViewModel.name.lowercased().contains(self.searchText.lowercased()) 
 			}
 		}
 	}

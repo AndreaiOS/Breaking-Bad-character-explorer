@@ -26,7 +26,7 @@ struct FiltersView: View {
                     }
                 }
             }
-        }
+		}
     }
 }
 
