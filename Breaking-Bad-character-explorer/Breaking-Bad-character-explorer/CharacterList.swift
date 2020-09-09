@@ -13,31 +13,56 @@ struct CharacterList: View {
 	@ObservedObject private var viewModel = CharacterListViewModel()
 	@State private var searchText : String = ""
 	@State private var selectedSeasons: [Int] = [Int]()
+	@State var showMenu: Bool = false
 	
 	var body: some View {
-		NavigationView {
-			VStack {				
-				List {  
-					SearchBar(text: $searchText, placeholder: "Search character")
-					
-					ForEach(self.viewModel.characterViewModels.filter {
-						return filter(characterViewModel: $0)						
-					}, id: \.self) { characterViewModel in
-						CharacterCell(characterViewModel: characterViewModel)				
+		// Adds drag gesture recognizer to hide the menu
+		let drag = DragGesture()
+			.onEnded {
+				if $0.translation.width < -100 {
+					withAnimation {
+						self.showMenu = false
 					}
 				}
-				.onAppear {
-					self.viewModel.fetchCharacters()
-				}
-				.navigationBarTitle("Characters")
-				.navigationBarItems(trailing:
-					NavigationLink(destination: FiltersView(selectedSeasons: $selectedSeasons)) {
-						Text("Filters")
-					}
-				)
-				.resignKeyboardOnDragGesture()
-			}
 		}
+		
+		return NavigationView {			
+			ZStack(alignment: .leading) {
+				VStack {				
+					List {  
+						SearchBar(text: $searchText, placeholder: "Search character")
+						
+						ForEach(self.viewModel.characterViewModels.filter {
+							return filter(characterViewModel: $0)						
+						}, id: \.self) { characterViewModel in
+							CharacterCell(characterViewModel: characterViewModel)				
+						}
+					}
+					.offset(x: self.showMenu ? 200.0 : 0)
+					.disabled(self.showMenu ? true : false)
+					.onAppear {
+						self.viewModel.fetchCharacters()
+					}
+					.navigationBarTitle("Characters", displayMode: .inline)
+					.navigationBarItems(leading:
+						Button(action: {
+							withAnimation {
+								self.showMenu = !self.showMenu
+							}
+						}) {
+							Text("Filter")
+						}
+						
+					).resignKeyboardOnDragGesture()
+				}
+				if self.showMenu {
+					FiltersView(showMenu: self.$showMenu, selectedSeasons: self.$selectedSeasons)
+						.frame(width: 200.0)
+						.transition(.move(edge: .leading))
+				}
+			}
+			
+		}.gesture(drag)
 	}
 	
 	func filter(characterViewModel: CharacterViewModel) -> Bool {
@@ -60,48 +85,9 @@ struct CharacterList: View {
 }
 
 
-struct SearchBar: UIViewRepresentable {
-
-    @Binding var text: String
-    var placeholder: String
-
-    class Coordinator: NSObject, UISearchBarDelegate {
-
-        @Binding var text: String
-
-        init(text: Binding<String>) {
-            _text = text
-        }
-
-        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            text = searchText
-        }
-		
-		func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-			UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
-		}
-    }
-
-    func makeCoordinator() -> SearchBar.Coordinator {
-        return Coordinator(text: $text)
-    }
-
-    func makeUIView(context: UIViewRepresentableContext<SearchBar>) -> UISearchBar {
-        let searchBar = UISearchBar(frame: .zero)
-        searchBar.delegate = context.coordinator
-        searchBar.placeholder = placeholder
-        searchBar.searchBarStyle = .minimal
-        searchBar.autocapitalizationType = .none
-        return searchBar
-    }
-
-    func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchBar>) {
-        uiView.text = text
-    }
-}
 
 struct CharacterList_Previews: PreviewProvider {
-    static var previews: some View {
-        CharacterList()
-    }
+	static var previews: some View {
+		CharacterList()
+	}
 }

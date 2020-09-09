@@ -6,16 +6,20 @@
 //  Copyright © 2020 Andrea. All rights reserved.
 //
 
-import Foundation
 import SwiftUI
 
 struct FiltersView: View {
 	
+	@Binding var showMenu: Bool
 	@Binding var selectedSeasons: [Int]
 	let items = [1, 2, 3, 4, 5]
 	
     var body: some View {
-        List {
+		List {
+			Text("Select seasons")
+			.foregroundColor(.black)
+				.font(.headline)
+				
             ForEach(self.items, id: \.self) { item in
                 MultipleSelectionRow(title: "Season \(item)", isSelected: self.selectedSeasons.contains(item)) {
                     if self.selectedSeasons.contains(item) {
@@ -27,23 +31,10 @@ struct FiltersView: View {
                 }
             }
 		}
+		.colorMultiply(.gray)
+		.padding(.top, 90)
+		.frame(maxWidth: .infinity, alignment: .leading)
+		.edgesIgnoringSafeArea(.all)
     }
 }
 
-struct MultipleSelectionRow: View {
-    var title: String
-    var isSelected: Bool
-    var action: () -> Void
-
-    var body: some View {
-        Button(action: self.action) {
-            HStack {
-                Text(self.title)
-                if self.isSelected {
-                    Spacer()
-                    Image(systemName: "checkmark")
-                }
-            }
-        }
-    }
-}

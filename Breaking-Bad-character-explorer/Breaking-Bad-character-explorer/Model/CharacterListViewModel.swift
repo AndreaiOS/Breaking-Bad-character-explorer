@@ -6,7 +6,6 @@
 //  Copyright © 2020 Andrea. All rights reserved.
 //
 
-import Foundation
 import Combine
 
 class CharacterListViewModel: ObservableObject {
@@ -22,10 +21,8 @@ class CharacterListViewModel: ObservableObject {
 		// and the network request will not complete properly
 		cancellable = characterService
 			.fetchCharacters().sink(receiveCompletion: { _ in
-
 			}, receiveValue: { characterContainer in
 				self.characterViewModels = characterContainer.map { CharacterViewModel($0) } 
 			})
 	}
-	
 }
