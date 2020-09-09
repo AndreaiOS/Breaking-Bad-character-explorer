@@ -14,6 +14,9 @@
 		A55A72B32507F4AD0043F9DD /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55A72B22507F4AD0043F9DD /* FiltersView.swift */; };
 		A55A72B52508EC970043F9DD /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55A72B42508EC970043F9DD /* SearchBar.swift */; };
 		A55A72B72508ED960043F9DD /* MultipleSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55A72B62508ED960043F9DD /* MultipleSelectionRow.swift */; };
+		A55A72CB250900730043F9DD /* CharacterListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55A72CA250900730043F9DD /* CharacterListViewModelTest.swift */; };
+		A55A72CD250903660043F9DD /* CharacterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55A72CC250903660043F9DD /* CharacterTest.swift */; };
+		A55A72CF250908AD0043F9DD /* CharacterViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55A72CE250908AD0043F9DD /* CharacterViewModelTest.swift */; };
 		A5D40C2F25078712009B728E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D40C2E25078712009B728E /* AppDelegate.swift */; };
 		A5D40C3125078712009B728E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D40C3025078712009B728E /* SceneDelegate.swift */; };
 		A5D40C3325078712009B728E /* CharacterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D40C3225078712009B728E /* CharacterList.swift */; };
@@ -26,6 +29,16 @@
 		A5D40C4A25078C22009B728E /* CharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D40C4925078C22009B728E /* CharacterService.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A55A72C32508FD210043F9DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A5D40C2325078712009B728E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5D40C2A25078712009B728E;
+			remoteInfo = "Breaking-Bad-character-explorer";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		3A093A288818DFEA0C90FD23 /* Pods-Breaking-Bad-character-explorer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breaking-Bad-character-explorer.release.xcconfig"; path = "Target Support Files/Pods-Breaking-Bad-character-explorer/Pods-Breaking-Bad-character-explorer.release.xcconfig"; sourceTree = "<group>"; };
 		40B0BA0A8437CBEE374A7084 /* Pods-Breaking-Bad-character-explorer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breaking-Bad-character-explorer.debug.xcconfig"; path = "Target Support Files/Pods-Breaking-Bad-character-explorer/Pods-Breaking-Bad-character-explorer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -36,6 +49,11 @@
 		A55A72B22507F4AD0043F9DD /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 		A55A72B42508EC970043F9DD /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		A55A72B62508ED960043F9DD /* MultipleSelectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionRow.swift; sourceTree = "<group>"; };
+		A55A72BE2508FD210043F9DD /* Breaking-Bad-character-explorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Breaking-Bad-character-explorerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A55A72C22508FD210043F9DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A55A72CA250900730043F9DD /* CharacterListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CharacterListViewModelTest.swift; path = "Breaking-Bad-character-explorerTests/CharacterListViewModelTest.swift"; sourceTree = SOURCE_ROOT; };
+		A55A72CC250903660043F9DD /* CharacterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTest.swift; sourceTree = "<group>"; };
+		A55A72CE250908AD0043F9DD /* CharacterViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModelTest.swift; sourceTree = "<group>"; };
 		A5D40C2B25078712009B728E /* Breaking-Bad-character-explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Breaking-Bad-character-explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D40C2E25078712009B728E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5D40C3025078712009B728E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +69,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A55A72BB2508FD210043F9DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A5D40C2825078712009B728E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -87,10 +112,22 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		A55A72BF2508FD210043F9DD /* Breaking-Bad-character-explorerTests */ = {
+			isa = PBXGroup;
+			children = (
+				A55A72CA250900730043F9DD /* CharacterListViewModelTest.swift */,
+				A55A72CC250903660043F9DD /* CharacterTest.swift */,
+				A55A72CE250908AD0043F9DD /* CharacterViewModelTest.swift */,
+				A55A72C22508FD210043F9DD /* Info.plist */,
+			);
+			path = "Breaking-Bad-character-explorerTests";
+			sourceTree = "<group>";
+		};
 		A5D40C2225078712009B728E = {
 			isa = PBXGroup;
 			children = (
 				A5D40C2D25078712009B728E /* Breaking-Bad-character-explorer */,
+				A55A72BF2508FD210043F9DD /* Breaking-Bad-character-explorerTests */,
 				A5D40C2C25078712009B728E /* Products */,
 				4BB265846B5A97D6E40C8BC9 /* Pods */,
 				5FED0E6813637C1DD8FFC8B8 /* Frameworks */,
@@ -101,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				A5D40C2B25078712009B728E /* Breaking-Bad-character-explorer.app */,
+				A55A72BE2508FD210043F9DD /* Breaking-Bad-character-explorerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,6 +202,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A55A72BD2508FD210043F9DD /* Breaking-Bad-character-explorerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A55A72C52508FD210043F9DD /* Build configuration list for PBXNativeTarget "Breaking-Bad-character-explorerTests" */;
+			buildPhases = (
+				A55A72BA2508FD210043F9DD /* Sources */,
+				A55A72BB2508FD210043F9DD /* Frameworks */,
+				A55A72BC2508FD210043F9DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A55A72C42508FD210043F9DD /* PBXTargetDependency */,
+			);
+			name = "Breaking-Bad-character-explorerTests";
+			productName = "Breaking-Bad-character-explorerTests";
+			productReference = A55A72BE2508FD210043F9DD /* Breaking-Bad-character-explorerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		A5D40C2A25078712009B728E /* Breaking-Bad-character-explorer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5D40C3F25078713009B728E /* Build configuration list for PBXNativeTarget "Breaking-Bad-character-explorer" */;
@@ -193,6 +249,10 @@
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = Andrea;
 				TargetAttributes = {
+					A55A72BD2508FD210043F9DD = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = A5D40C2A25078712009B728E;
+					};
 					A5D40C2A25078712009B728E = {
 						CreatedOnToolsVersion = 11.5;
 					};
@@ -212,11 +272,19 @@
 			projectRoot = "";
 			targets = (
 				A5D40C2A25078712009B728E /* Breaking-Bad-character-explorer */,
+				A55A72BD2508FD210043F9DD /* Breaking-Bad-character-explorerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A55A72BC2508FD210043F9DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A5D40C2925078712009B728E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -272,6 +340,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A55A72BA2508FD210043F9DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A55A72CF250908AD0043F9DD /* CharacterViewModelTest.swift in Sources */,
+				A55A72CB250900730043F9DD /* CharacterListViewModelTest.swift in Sources */,
+				A55A72CD250903660043F9DD /* CharacterTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A5D40C2725078712009B728E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -294,6 +372,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A55A72C42508FD210043F9DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5D40C2A25078712009B728E /* Breaking-Bad-character-explorer */;
+			targetProxy = A55A72C32508FD210043F9DD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		A5D40C3925078713009B728E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -306,6 +392,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A55A72C62508FD210043F9DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Breaking-Bad-character-explorerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "co.uk.andrea.Breaking-Bad-character-explorerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Breaking-Bad-character-explorer.app/Breaking-Bad-character-explorer";
+			};
+			name = Debug;
+		};
+		A55A72C72508FD210043F9DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Breaking-Bad-character-explorerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "co.uk.andrea.Breaking-Bad-character-explorerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Breaking-Bad-character-explorer.app/Breaking-Bad-character-explorer";
+			};
+			name = Release;
+		};
 		A5D40C3D25078713009B728E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -463,6 +587,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A55A72C52508FD210043F9DD /* Build configuration list for PBXNativeTarget "Breaking-Bad-character-explorerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A55A72C62508FD210043F9DD /* Debug */,
+				A55A72C72508FD210043F9DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A5D40C2625078712009B728E /* Build configuration list for PBXProject "Breaking-Bad-character-explorer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
