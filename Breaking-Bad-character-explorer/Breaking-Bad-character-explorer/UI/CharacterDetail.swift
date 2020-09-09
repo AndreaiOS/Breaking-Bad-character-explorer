@@ -23,43 +23,41 @@ struct CharacterDetail: View {
 				.indicator(.activity) // Activity Indicator
 				.transition(.fade(duration: 0.1)) // Fade Transition with duration
 				.scaledToFit()
-				.frame(width: 200, height: 200, alignment: .center)
+				.frame(width: UIScreen.main.bounds.width - 16, height: 300, alignment: .center)
 			.clipShape(Circle())
 			.overlay(
 				Circle().stroke(Color.orange, lineWidth: 4)
 			)
 			.shadow(radius: 10)
-
 			
 			Text(character.name)
                 .font(.title)
-			
+			.frame(width: UIScreen.main.bounds.width - 16, height: 80, alignment: .center)
+
 			Divider()
 			
 			Text("Occupation :")
-				.font(.headline)
+				.font(.subheadline)
 
 			VStack (alignment: .leading) {
 				ForEach(character.occupation, id: \.self) { occupation in
 					Text(occupation)				
 						.font(.subheadline)
-					
 				}
 			}
 
 			Divider()
 
 			Text("Status : " + character.status)
-                .font(.headline)
-//			Divider()
+                .font(.subheadline)
 
 			Text("Nickname : " + character.nickname)
-			.font(.headline)
+			.font(.subheadline)
 			
 			Divider()
 
 			Text("Season appearance : " + character.appearance.description)
-			.font(.headline)
+			.font(.subheadline)
         }.padding()
 		
     }
