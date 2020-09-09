@@ -14,7 +14,7 @@ struct CharacterDetail: View {
 	var character: CharacterViewModel
 	
     var body: some View {
-        VStack {
+		return VStack(alignment: .leading) {
 			WebImage(url: URL(string: character.img))
 				.onSuccess { image, data, cacheType in
 			}
@@ -33,18 +33,35 @@ struct CharacterDetail: View {
 			
 			Text(character.name)
                 .font(.title)
-			Text(character.occupation.description)
-                .font(.subheadline)
+			
+			Divider()
+			
+			Text("Occupation :")
+				.font(.headline)
+
+			VStack (alignment: .leading) {
+				ForEach(character.occupation, id: \.self) { occupation in
+					Text(occupation)				
+						.font(.subheadline)
+					
+				}
+			}
 
 			Divider()
 
-			Text(character.status)
+			Text("Status : " + character.status)
                 .font(.headline)
-			Text(character.nickname)
+//			Divider()
+
+			Text("Nickname : " + character.nickname)
 			.font(.headline)
-			Text(character.appearance.description)
+			
+			Divider()
+
+			Text("Season appearance : " + character.appearance.description)
 			.font(.headline)
         }.padding()
+		
     }
 }
 
