@@ -1,6 +1,19 @@
-# Breaking-Bad-character-explorer
+# Breaking Bad character explorer
 
-iOS
+![Pod](https://img.shields.io/badge/pod-1.5.3-blue.svg)
+![iOS Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
+
+
+## Requirements
+
+- iOS 13.5+
+- Xcode 11.5
+- Swift 5
+
+- Command Line Tools 11.5
+
+## Overview
+
 This test consists of building an app and will allow you to demonstrate your knowledge as an iOS Engineer using Swift. 
 
 Create a Breaking Bad character explorer app with the following screens: 
@@ -74,3 +87,21 @@ API endpoint: ● https://breakingbadapi.com/api/characters
 ]
 
 
+
+## Build
+
+The project uses Cocoapods. Please ensure you have installed Cocoapods before attempting the instructions below.
+
+#### Instructions
+
+1. Checkout the application via Github or via a terminal.
+2. Run `pod install` to checkout third party pods and create xcode workspace file.
+
+
+#### Cocoapods
+
+[Cocoapods](https://cocoapods.org/) is a dependency manager for Swift and Objective-C Cocoa projects. You can install this using the setup instructions [here](https://cocoapods.org/).
+
+## Author
+
+Andrea Murru (an.murru@gmail.com)
