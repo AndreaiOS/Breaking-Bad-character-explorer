@@ -41,7 +41,7 @@ This test consists of building an app and will allow you to demonstrate your kno
 * Season appearance
 
 *Functionality*
-The user can return back to screen 1
+* The user can return back to screen 1
 
 
 ### **Guidelines** 
