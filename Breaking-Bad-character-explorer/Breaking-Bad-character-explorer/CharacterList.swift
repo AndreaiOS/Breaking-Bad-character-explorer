@@ -16,6 +16,7 @@ struct CharacterList: View {
 	@State var showMenu: Bool = false
 	
 	var body: some View {
+		
 		// Adds drag gesture recognizer to hide the menu
 		let drag = DragGesture()
 			.onEnded {
@@ -26,43 +27,62 @@ struct CharacterList: View {
 				}
 		}
 		
-		return NavigationView {			
-			ZStack(alignment: .leading) {
-				VStack {				
-					List {  
-						SearchBar(text: $searchText, placeholder: "Search character")
-						
-						ForEach(self.viewModel.characterViewModels.filter {
-							return filter(characterViewModel: $0)						
-						}, id: \.self) { characterViewModel in
-							CharacterCell(characterViewModel: characterViewModel)				
-						}
-					}
-					.offset(x: self.showMenu ? 200.0 : 0)
-					.disabled(self.showMenu ? true : false)
-					.onAppear {
-						self.viewModel.fetchCharacters()
-					}
-					.navigationBarTitle("Characters", displayMode: .inline)
-					.navigationBarItems(leading:
-						Button(action: {
-							withAnimation {
-								self.showMenu = !self.showMenu
-							}
-						}) {
-							Text("Filter")
-						}
-						
-					).resignKeyboardOnDragGesture()
-				}
-				if self.showMenu {
-					FiltersView(showMenu: self.$showMenu, selectedSeasons: self.$selectedSeasons)
-						.frame(width: 200.0)
-						.transition(.move(edge: .leading))
-				}
-			}
+		return 
 			
-		}.gesture(drag)
+			NavigationView {		
+
+					
+					ZStack(alignment: .leading) {
+						VStack {				
+							List {  
+								SearchBar(text: $searchText, placeholder: "Search character")
+								
+								ForEach(self.viewModel.characterViewModels.filter {
+									return filter(characterViewModel: $0)						
+								}, id: \.self) { characterViewModel in
+									CharacterCell(characterViewModel: characterViewModel)				
+								}
+							}
+							.offset(x: self.showMenu ? 200.0 : 0)
+							.disabled(self.showMenu ? true : false)
+							.onAppear {
+								if self.viewModel.fetched == false {
+									self.viewModel.fetchCharacters()
+								}
+							}
+							.navigationBarTitle("Characters", displayMode: .inline)
+							.navigationBarItems(leading:
+								Button(action: {
+									withAnimation {
+										self.showMenu = !self.showMenu
+									}
+								}) {
+									Text("Filter")
+								}
+								
+							).resignKeyboardOnDragGesture()
+						}
+						if self.showMenu {
+							FiltersView(showMenu: self.$showMenu, selectedSeasons: self.$selectedSeasons)
+								.frame(width: 200.0)
+								.transition(.move(edge: .leading))
+						}
+						if viewModel.loading {
+						VStack {
+							Text("Loading...")
+							ActivityIndicator(isAnimating: .constant(true), style: .large)
+						}
+						.frame(width: UIScreen.main.bounds.size.width,
+							   height: UIScreen.main.bounds.size.height)
+						.background(Color.secondary.colorInvert())
+						.foregroundColor(Color.primary)
+						.cornerRadius(20)
+						.opacity(1)
+						}
+					}
+					
+			}.gesture(drag)
+		
 	}
 	
 	func filter(characterViewModel: CharacterViewModel) -> Bool {
@@ -84,6 +104,19 @@ struct CharacterList: View {
 	}
 }
 
+struct ActivityIndicator: UIViewRepresentable {
+
+    @Binding var isAnimating: Bool
+    let style: UIActivityIndicatorView.Style
+
+    func makeUIView(context: UIViewRepresentableContext<ActivityIndicator>) -> UIActivityIndicatorView {
+        return UIActivityIndicatorView(style: style)
+    }
+
+    func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<ActivityIndicator>) {
+        isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
+    }
+}
 
 
 struct CharacterList_Previews: PreviewProvider {
