@@ -1,6 +1,6 @@
 # Breaking Bad character explorer
 
-![Pod](https://img.shields.io/badge/pod-1.5.3-blue.svg)
+![Pod](https://img.shields.io/badge/pod-1.8.4-blue.svg)
 ![iOS Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
 
 
