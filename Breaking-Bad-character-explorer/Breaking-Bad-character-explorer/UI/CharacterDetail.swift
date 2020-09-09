@@ -42,7 +42,7 @@ struct CharacterDetail: View {
                 .font(.headline)
 			Text(character.nickname)
 			.font(.headline)
-			Text(character.betterCallSaulAppearance != nil ? character.betterCallSaulAppearance!.description : "")
+			Text(character.appearance.description)
 			.font(.headline)
         }.padding()
     }
