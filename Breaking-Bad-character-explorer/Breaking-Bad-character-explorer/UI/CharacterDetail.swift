@@ -14,7 +14,9 @@ struct CharacterDetail: View {
 	var character: CharacterViewModel
 	
     var body: some View {
-		return VStack(alignment: .leading) {
+		return 
+			List {
+			VStack(alignment: .leading) {
 			WebImage(url: URL(string: character.img))
 				.onSuccess { image, data, cacheType in
 			}
@@ -23,7 +25,7 @@ struct CharacterDetail: View {
 				.indicator(.activity) // Activity Indicator
 				.transition(.fade(duration: 0.1)) // Fade Transition with duration
 				.scaledToFit()
-				.frame(width: UIScreen.main.bounds.width - 16, height: 300, alignment: .center)
+				.frame(width: 300, height: 300, alignment: .center)
 			.clipShape(Circle())
 			.overlay(
 				Circle().stroke(Color.orange, lineWidth: 4)
@@ -32,7 +34,7 @@ struct CharacterDetail: View {
 			
 			Text(character.name)
                 .font(.title)
-			.frame(width: UIScreen.main.bounds.width - 16, height: 80, alignment: .center)
+			.frame(width: 300, height: 80, alignment: .center)
 
 			Divider()
 			
@@ -59,7 +61,7 @@ struct CharacterDetail: View {
 			Text("Season appearance : " + character.appearance.description)
 			.font(.subheadline)
         }.padding()
-		
+		}
     }
 }
 
